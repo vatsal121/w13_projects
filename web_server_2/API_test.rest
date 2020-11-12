@@ -1,0 +1,21 @@
+GET http://localhost:8000/offices HTTP/1.1
+
+###
+GET http://localhost:8000/offices/6 HTTP/1.1
+
+###
+POST http://localhost:8000/offices HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+officecode=10&city=Montreal&phone=12345678&addressline1=Cote-des-Neighs&addressline2=near pizzapizza&state=Quebec&country=Canada&postalcode=H3S1R7&territory=Quebec
+
+###
+PUT  http://localhost:8000/offices/9 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+city=Montreal&phone=789456123&addressline1=Cote-des-Neighs&addressline2=near pizzapizza&state=Quebec&country=Canada&postalcode=H3S1R7&territory=Quebec
+
+###
+DELETE http://localhost:8000/offices/10 HTTP/1.1
+
+###
