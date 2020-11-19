@@ -130,7 +130,6 @@ class Offices extends React.Component {
             .then(res => res.json())//here server sends JSON response
             .then(
                 (response) => {
-                    debugger
                     // TO DO how to handle code other than 200 because this gets
                     // exeucted in all cases
                     this.showMessage(response.message, 2000);
