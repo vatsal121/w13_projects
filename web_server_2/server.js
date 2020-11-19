@@ -108,7 +108,7 @@ app.post('/offices', function (request, response) {
 
 app.put('/offices/:id', function (request, response) {
     const officeData = {
-        officecode: request.params.id,
+        officecode: request.body.officecode,
         city: request.body.city,
         phone: request.body.phone,
         addressline1: request.body.addressline1,
@@ -120,8 +120,8 @@ app.put('/offices/:id', function (request, response) {
     }
     const DB = require('./src/dao')
     DB.connect()
-    const updateQuery = 'UPDATE offices set city=$1,phone=$2,addressline1=$3,addressline2=$4,state=$5,country=$6,postalcode=$7,territory=$8 where officecode=$9'
-    const queryParams = [officeData.city, officeData.phone, officeData.addressline1, officeData.addressline2, officeData.state, officeData.country, officeData.postalcode, officeData.territory, officeData.officecode]
+    const updateQuery = 'UPDATE offices set city=$1,phone=$2,addressline1=$3,addressline2=$4,state=$5,country=$6,postalcode=$7,territory=$8, officecode=$9 where officecode=$10'
+    const queryParams = [officeData.city, officeData.phone, officeData.addressline1, officeData.addressline2, officeData.state, officeData.country, officeData.postalcode, officeData.territory, officeData.officecode, request.params.id]
     DB.queryParams(updateQuery, queryParams, function (offices) {
         const statusCode = 200
         const msg = 'Succussfully updated data'
