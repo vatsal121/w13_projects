@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Offices from './Offices';
+
+import SelectList from "./SelectList";
+
+import Header from './Header';
+import Footer from './Footer'
 import reportWebVitals from './reportWebVitals';
 
 // ReactDOM.render(
@@ -10,23 +15,21 @@ import reportWebVitals from './reportWebVitals';
 //   </React.StrictMode>,
 //   document.getElementById('root')
 // );
-class Header extends React.Component {
-  render() {
-    return (<p>This is the Header component</p>)
-  }
-}
-class Footer extends React.Component {
-  render() {
-    return (<p>This is the Footer component</p>)
-  }
-}
+
+// const provinces = [{ code: 'QC', name: 'Quebec' }, { code: 'ON', name: 'Ontario' }, { code: 'NB', name: 'New-Brunswick' }]
+
+// const countries = [{ code: 'CA', name: 'Canada' }, { code: 'US', name: 'USA' }, { code: 'IN', name: 'India' }, { code: 'MX', name: 'Mexixo' }]
+
 class Page extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <p>Hello World !</p>
-        <Footer />
+        <Header companyName="Office Demo by " authorName="Vatsal Chauhan" />
+        {/* <p>Hello World !</p>
+        <SelectList list={provinces} />
+        <SelectList list={countries} /> */}
+        <Offices />
+        <Footer authorName="Vatsal Chauhan" />
       </div>
     )
   }
