@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Offices from './Offices';
-
-import SelectList from "./SelectList";
-
+//import SelectList from "./SelectList";
 import Header from './Header';
+import Offices from './Offices';
 import Footer from './Footer'
 import reportWebVitals from './reportWebVitals';
 
