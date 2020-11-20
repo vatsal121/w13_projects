@@ -17,7 +17,7 @@ class Footer extends React.Component {
                         <div className="row">
                             <div className="col-xl-6 col-lg-6 text-center text-lg-left">
                                 <div className="copyright-text">
-                                    <p>Copyright &copy; 2018, All Right Reserved <a href="http://localhost:3000" role="button">{authorName}</a></p>
+                                    <p>Copyright &copy; {new Date().getFullYear()}, All Right Reserved <a href="http://localhost:3000" role="button">{authorName}</a></p>
                                 </div>
                             </div>
                         </div>

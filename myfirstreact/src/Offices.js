@@ -243,7 +243,12 @@ class Offices extends React.Component {
                 // offices table not empty
                 return (
                     <div>
-                        <code>List of offices from server <a href="http://localhost:8000/offices" target="_blank" rel="noreferrer">http://localhost:8000/offices</a></code><br />
+                        <div className="row mt-2">
+                            <div className="col-md-12">
+                                <code>List of offices from server <a href="http://localhost:8000/offices" target="_blank" rel="noreferrer">http://localhost:8000/offices</a></code>
+                            </div>
+                        </div>
+
                         {/* <div className="form-group">
                             <label>Enter office code to search office: </label>
                             <input type="number" className="form-control" onChange={(e) => {
@@ -254,109 +259,123 @@ class Offices extends React.Component {
                             }} defaultValue={officeObject.officecode} />
                         </div>
                         <br /> */}
-                        <table className="table table-bordered table-striped table-hover">
-                            <tbody>
-                                <tr>
-                                    <th>Office Code</th>
-                                    <td><input id="officecode" className="form-control" type="number" min="1" step="1" value={officeObject.officecode ? officeObject.officecode : "0"} onChange={(e) => {
-                                        if (selectedOfficeCode === -1) {
-                                            this.onInputValueChange(e);
-                                        }
-                                    }} disabled={selectedOfficeCode !== -1} /></td>
-                                </tr>
-                                <tr>
-                                    <th>City</th>
-                                    <td><input id="city" className="form-control" type="text" value={officeObject.city ? officeObject.city : ""} onChange={(e) => {
-                                        this.onInputValueChange(e);
-                                    }} /></td>
-                                </tr>
-                                <tr>
-                                    <th>Phone</th>
-                                    <td><input id="phone" className="form-control" type="text" value={officeObject.phone ? officeObject.phone : ""} onChange={(e) => {
-                                        this.onInputValueChange(e);
-                                    }} /></td>
-                                </tr>
-                                <tr>
-                                    <th>Address Line 1</th>
-                                    <td>
-                                        <textarea id="addressline1" className="form-control" value={officeObject.addressline1 ? officeObject.addressline1 : ""} onChange={(e) => {
-                                            this.onInputValueChange(e);
-                                        }}>
-                                        </textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Address Line 2</th>
-                                    <td>
-                                        <textarea id="addressline2" className="form-control" value={officeObject.addressline2 ? officeObject.addressline2 : ""} onChange={(e) => {
-                                            this.onInputValueChange(e);
-                                        }}>
-                                        </textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>State</th>
-                                    <td><input id="state" className="form-control" type="text" value={officeObject.state ? officeObject.state : ""} onChange={(e) => {
-                                        this.onInputValueChange(e);
-                                    }} /></td>
-                                </tr>
-                                <tr>
-                                    <th>Country</th>
-                                    <td><input id="country" className="form-control" type="text" value={officeObject.country ? officeObject.country : ""} onChange={(e) => {
-                                        this.onInputValueChange(e);
-                                    }} /></td>
-                                </tr>
-                                <tr>
-                                    <th>Postal Code</th>
-                                    <td><input id="postalcode" className="form-control" type="text" value={officeObject.postalcode ? officeObject.postalcode : ""} onChange={(e) => {
-                                        this.onInputValueChange(e);
-                                    }} /></td>
-                                </tr>
-                                <tr>
-                                    <th>Territory</th>
-                                    <td><input id="territory" className="form-control" type="text" value={officeObject.territory ? officeObject.territory : ""} onChange={(e) => {
-                                        this.onInputValueChange(e);
-                                    }} /></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    {message ? (<td colSpan="10">
-                                        <div className="alert alert-success" role="alert">
-                                            {message}
-                                        </div>
-                                    </td>) : <td></td>}
-                                </tr>
-                                <tr>
-                                    <td colSpan="10" className="text-center">
-                                        <button className="btn btn-primary" type="button" onClick={() => {
-                                            this.nextPrevBtnClick("previous");
-                                        }} disabled={offices_index === 0}>Previous</button>
-                                        &nbsp;
-                                        <button className="btn btn-primary" type="button" onClick={() => {
-                                            this.nextPrevBtnClick("next");
-                                        }} disabled={offices_index === offices_count - 1}>Next</button>
-                                        &nbsp;
-                                        <button className="btn btn-warning" onClick={() => { this.addUpdateOfficeData() }}>
-                                            Save
-                                        </button>
-                                        &nbsp;
-                                        <button className="btn btn-success" onClick={() => { this.addUpdateOfficeData() }}>
-                                            Add new office
-                                        </button>
-                                        &nbsp;
-                                        <button className="btn btn-danger">
-                                            Delete
-                                        </button>
-                                        &nbsp;
-                                        <button className="btn btn-info" onClick={() => { this.clearAllValues() }} >
-                                            Clear all values before adding a new office
-                                        </button>
-                                        &nbsp;
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <div className="row mt-2">
+                            <div className="col-md-12">
+                                <table className="table table-bordered table-striped table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>Office Code</th>
+                                            <td><input id="officecode" className="form-control" type="number" min="1" step="1" value={officeObject.officecode ? officeObject.officecode : "0"} onChange={(e) => {
+                                                if (selectedOfficeCode === -1) {
+                                                    this.onInputValueChange(e);
+                                                }
+                                            }} disabled={selectedOfficeCode !== -1} /></td>
+                                        </tr>
+                                        <tr>
+                                            <th>City</th>
+                                            <td><input id="city" className="form-control" type="text" value={officeObject.city ? officeObject.city : ""} onChange={(e) => {
+                                                this.onInputValueChange(e);
+                                            }} /></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Phone</th>
+                                            <td><input id="phone" className="form-control" type="text" value={officeObject.phone ? officeObject.phone : ""} onChange={(e) => {
+                                                this.onInputValueChange(e);
+                                            }} /></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Address Line 1</th>
+                                            <td>
+                                                <textarea id="addressline1" className="form-control" value={officeObject.addressline1 ? officeObject.addressline1 : ""} onChange={(e) => {
+                                                    this.onInputValueChange(e);
+                                                }}>
+                                                </textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Address Line 2</th>
+                                            <td>
+                                                <textarea id="addressline2" className="form-control" value={officeObject.addressline2 ? officeObject.addressline2 : ""} onChange={(e) => {
+                                                    this.onInputValueChange(e);
+                                                }}>
+                                                </textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>State</th>
+                                            <td><input id="state" className="form-control" type="text" value={officeObject.state ? officeObject.state : ""} onChange={(e) => {
+                                                this.onInputValueChange(e);
+                                            }} /></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Country</th>
+                                            <td><input id="country" className="form-control" type="text" value={officeObject.country ? officeObject.country : ""} onChange={(e) => {
+                                                this.onInputValueChange(e);
+                                            }} /></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Postal Code</th>
+                                            <td><input id="postalcode" className="form-control" type="text" value={officeObject.postalcode ? officeObject.postalcode : ""} onChange={(e) => {
+                                                this.onInputValueChange(e);
+                                            }} /></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Territory</th>
+                                            <td><input id="territory" className="form-control" type="text" value={officeObject.territory ? officeObject.territory : ""} onChange={(e) => {
+                                                this.onInputValueChange(e);
+                                            }} /></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            {message ? (<td colSpan="10">
+                                                <div className="alert alert-success" role="alert">
+                                                    {message}
+                                                </div>
+                                            </td>) : <td></td>}
+                                        </tr>
+                                        <tr>
+                                            <td colSpan="10" className="text-center">
+                                                <div className="row">
+                                                    <div className="col-md-12">
+                                                        <button className="btn btn-primary" type="button" onClick={() => {
+                                                            this.nextPrevBtnClick("previous");
+                                                        }} disabled={offices_index === 0}>Previous</button>
+                                                &nbsp;
+                                                <span>{offices_index + 1} of {offices_count} </span>
+                                                        <button className="btn btn-primary" type="button" onClick={() => {
+                                                            this.nextPrevBtnClick("next");
+                                                        }} disabled={offices_index === offices_count - 1}>Next</button>
+                                                    </div>
+                                                </div>
+                                                <div className="row mt-1">
+                                                    <div className="col-md-12">
+                                                        &nbsp;
+                                                <button className="btn btn-warning" onClick={() => { this.addUpdateOfficeData() }}>
+                                                            Save
+                                                </button>
+                                                &nbsp;
+                                                <button className="btn btn-success" onClick={() => { this.addUpdateOfficeData() }}>
+                                                            Add new office
+                                                </button>
+                                                &nbsp;
+                                                <button className="btn btn-danger">
+                                                            Delete
+                                                </button>
+                                                &nbsp;
+                                                <button className="btn btn-info" onClick={() => { this.clearAllValues() }} >
+                                                            Clear all values before adding a new office
+                                                </button>
+                                                &nbsp;
+                                            </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 )
             } else {
