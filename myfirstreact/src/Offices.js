@@ -48,16 +48,19 @@ class Offices extends React.Component {
                         // handle 2xx code success only
                         // get only JSON data returned from server with .json()
                         response.json().then(json_response => {
-                            console.log(json_response)
+                            //console.log(json_response)
                             if (!officecode) {
-                                this.setState({
-                                    offices_data: json_response.offices, // data received from server
-                                    offices_count: json_response.offices.length, // how many offices in array
-                                    offices_index: 0,  // will first show the first offices in the array
-                                    isLoaded: true,  // we got data
-                                    error: null, // no errors
-                                    officeObject: json_response.offices[0],
-                                    selectedOfficeCode: parseInt(json_response.offices[0].officecode)
+                                this.setState(prevState => {
+                                    let currentOfficeIndex = prevState.offices_index !== 0 ? prevState.offices_index : 0;
+                                    return {
+                                        offices_data: json_response.offices, // data received from server
+                                        offices_count: json_response.offices.length, // how many offices in array
+                                        offices_index: currentOfficeIndex,  // will first show the first offices in the array
+                                        isLoaded: true,  // we got data
+                                        error: null, // no errors
+                                        officeObject: json_response.offices[currentOfficeIndex],
+                                        selectedOfficeCode: parseInt(json_response.offices[currentOfficeIndex].officecode)
+                                    }
                                 })
                             }
                             else {
@@ -328,11 +331,11 @@ class Offices extends React.Component {
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            {message ? (<td colSpan="10">
-                                                <div className="alert alert-success" role="alert">
+                                            <td colSpan="10">
+                                                {message ? (<div className="alert alert-success" role="alert">
                                                     {message}
-                                                </div>
-                                            </td>) : <td></td>}
+                                                </div>) : ""}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td colSpan="10" className="text-center">
